@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&family=Roboto:wght@700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.divver {
+  width: 432px;
+  padding: 16px;
+  padding-top: 64px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+.sub-title {
+  margin-top: 8px;
+  border-left: solid 6px #6C9DFE;
+  padding: 2px 8px;
+}
+
+#canvas {
+  margin-top: 32px;
+  height: 400px;
+  width: 100%;
+  background-color: #F2F3F8;
+}
+
+#result {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #F2F3F8;
+  margin-top: 8px;
+  padding: 16px;
+}
+
+#controller {
+  margin-top: 8px;
+}
+
+#controller .angles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#controller .angles #angle_range {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+
+#controller .angles #angle_number {
+  margin-left: 8px;
+  width: 30px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #F2F3F8;
+  border: 0;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+#controller .angles #angle_number:focus {
+  outline: solid 2px #6C9DFE;
+}
+
+#controller .block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 8px;
+}
+
+#controller .block .block-text {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+
+#controller .block input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 30px;
+  background-color: #F2F3F8;
+  border: 0;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+#controller .block input:focus {
+  outline: solid 2px #6C9DFE;
+}
+
+.copyright {
+  font-size: 12px;
+  margin-top: 60px;
+  color: #D5D5D5;
+  text-align: center;
+}
+
+.copyright a {
+  color: #D5D5D5;
+}
+/*# sourceMappingURL=style.css.map */
