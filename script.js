@@ -1,12 +1,13 @@
 $("#angle_range").val(0)
 $("#angle_number").val(0)
-$("#refractive_a").val(1)
-$("#refractive_b").val(2)
+$("#refractive_a").val(control.refractive_a)
+$("#refractive_b").val(control.refractive_b)
+
+control.refractive = control.refractive_b / control.refractive_a
 
 $("#angle_range").on('input', e => {
     $("#angle_number").val(e.target.value)
     control.angle = e.target.value
-    
 })
 
 $("#angle_number").change(e => {

@@ -1,8 +1,8 @@
 let control = {
     angle: 0,
     refractive_a: 1,
-    refractive_b: 2,
-    refractive: 2
+    refractive_b: 1.33,
+    refractive: 1
 }
 
 let result = {
@@ -10,24 +10,18 @@ let result = {
     refraction_angle: 0
 }
 
-const angleToLocationInflection = (angle) => {
-    let _angle = angle * control.refractive
+const angleToLocation = (angle) => {
+    return Math.round(Math.asin(Math.sin((Math.PI / 180) * angle) * control.refractive)*10 / Math.PI*180)/10
+}
 
-    if (_angle < 45) {
-        return [200+Math.round(_angle*100/180)*8, 0]
-    } else if (_angle <= 90) {
-        return [400, Math.round(_angle*100/180)*8-200]
+const angleToLocationInflection = (angle) => {
+    if (angle < 45) {
+        return [200+Math.round(angle*100/180)*8, 0]
+    } else if (angle <= 90) {
+        return [400, Math.round(angle*100/180)*8-200]
     } else {
         return [200,200]
     }
-
-    // if (_angle < 45) {
-    //     return [200+Math.round(_angle*100/180)*8, 0]
-    // } else if (_angle < 135) {
-    //     return [400, Math.round(_angle*100/180)*8-200]
-    // } else {
-    //     return [1000-Math.round(_angle*100/180)*8, 400]
-    // }
 }
 
 const angleToLocationReflection = (angle) => {
@@ -51,6 +45,7 @@ let sketch = function (p) {
         p.createCanvas(400, 400);
         p.background("#F2F3F8");
         p.stroke(0)
+        p.frameRate(30)
     }
 
     p.draw = function () {
@@ -75,13 +70,14 @@ let sketch = function (p) {
         }
 
         // 굴절 광선
+        let angleToLocationValue = angleToLocation(control.angle)
         p.stroke("#00ff00");
-        p.line(200, 200, ...angleToLocationInflection(control.angle))
+        p.line(200, 200, ...angleToLocationInflection(angleToLocationValue))
 
         // 반사 광선
         p.stroke("#0000ff");
         p.line(200, 200, ...angleToLocationReflection(control.angle))
     
-        $("#result").html(`입사각: ${control.angle}° 반사각: ${control.angle}° 굴절각: ${control.angle*control.refractive <= 90 ? control.angle*control.refractive : "-" }°`)
+        $("#result").html(`입사각: ${control.angle}° 반사각: ${control.angle}° 굴절각: ${angleToLocationValue <= 90 ? angleToLocationValue : "-" }°`)
     }
 };
