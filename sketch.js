@@ -1,5 +1,5 @@
 let control = {
-    angle: 0,
+    angle: 30,
     refractive_a: 1,
     refractive_b: 1.33,
     refractive: 1
@@ -8,6 +8,17 @@ let control = {
 let result = {
     incidence_angle: 0,
     refraction_angle: 0
+}
+
+var backgroundColor, backgroundColor2, textColor;
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    backgroundColor2 = "#1E1E1E";
+    backgroundColor = "#303030";
+    textColor = "rgba(238, 238, 238, 0.3)"
+} else {
+    backgroundColor2 = "#F2F3F8";
+    backgroundColor = "#DBDDEB";
+    textColor = "rgba(169, 169, 169, 0.3)"
 }
 
 const angleToLocation = (angle) => {
@@ -43,18 +54,18 @@ let sketch = function (p) {
 
     p.setup = function () {
         p.createCanvas(400, 400);
-        p.background("#F2F3F8");
+        p.background(backgroundColor);
         p.stroke(0)
         p.frameRate(30)
     }
 
     p.draw = function () {
-        p.background("#F2F3F8");
+        p.background(backgroundColor);
         p.strokeWeight(0);
-        p.fill('#DBDDEB')
+        p.fill(backgroundColor2)
         p.rect(0, 200, 400, 400);
         p.strokeWeight(2);
-        p.stroke("rgba(0,0,0,0.3)");
+        p.stroke(textColor);
         p.line(200, 0, 200, 400)
 
         p.textSize(32)
